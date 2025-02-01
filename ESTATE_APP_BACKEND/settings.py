@@ -117,7 +117,7 @@ WSGI_APPLICATION = 'ESTATE_APP_BACKEND.wsgi.application'
 
 
 CORS_ALLOWED_ORIGINS = [
-    "http://localhost:4200",  # Your Angular app's origin
+    'https://estate-24ce884b10e6.herokuapp.com',  # Your Angular app's origin
 ]
 
 # Database
