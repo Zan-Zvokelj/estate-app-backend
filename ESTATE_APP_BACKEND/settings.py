@@ -124,7 +124,9 @@ CORS_ALLOWED_ORIGINS = [
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(conn_max_age=600)
+    'default': dj_database_url.config(
+        default='postgres://ubr9901pdq6r6h:p0c4666fdef1d85ad1d3cb80647a9b3efd1aadfedf6f12c8857896eb955ba0e5d@cd5gks8n4kb20g.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dc6gvdt922hhi2'
+    )
 }
 
 
