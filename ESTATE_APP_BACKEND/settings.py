@@ -28,8 +28,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Take environment variables from .env file
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
+
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # False if not in os.environ because of casting above
-DEBUG = env('DEBUG')
+DEBUG = env('DEBUG', default=False)
 
 # Raises Django's ImproperlyConfigured
 # exception if SECRET_KEY not in os.environ
@@ -68,6 +73,8 @@ INSTALLED_APPS = [
     'accounts',
     
 ]
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -126,10 +133,9 @@ CORS_ALLOWED_ORIGINS = [
 
 DATABASES = {
     'default': dj_database_url.config(
-        default='postgres://ubr9901pdq6r6h:p0c4666fdef1d85ad1d3cb80647a9b3efd1aadfedf6f12c8857896eb955ba0e5d@cd5gks8n4kb20g.cluster-czrs8kj4isg7.us-east-1.rds.amazonaws.com:5432/dc6gvdt922hhi2'
+        default=env('DATABASE_URL')
     )
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
