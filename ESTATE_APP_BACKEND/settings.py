@@ -84,10 +84,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware', # Add this
+    'corsheaders.middleware.CorsMiddleware',  # It should be here
     'django.middleware.common.CommonMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
+
 
 ROOT_URLCONF = 'ESTATE_APP_BACKEND.urls'
 
@@ -124,9 +125,10 @@ WSGI_APPLICATION = 'ESTATE_APP_BACKEND.wsgi.application'
 
 
 CORS_ALLOWED_ORIGINS = [
-    'https://estate-24ce884b10e6.herokuapp.com',  # 
-    'http://zan-zvokelj.github.io',  #
+    'https://estate-24ce884b10e6.herokuapp.com',
+    'https://zan-zvokelj.github.io',  # Ensure this is included
 ]
+
 
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
